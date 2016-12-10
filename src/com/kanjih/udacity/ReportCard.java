@@ -35,7 +35,6 @@ public class ReportCard implements Serializable {
     this.className = className;
     this.classYear = classYear;
     this.classAvgNotePercent = classAvgNotePercent;
-    
   }
   
   
@@ -82,21 +81,18 @@ public class ReportCard implements Serializable {
   public void addClassGrades(StudentGrade studentGrade){
     this.calculateAvg(studentGrade);
     listClassGrades.add(studentGrade);
-    
   }
   
   public void addClassGrades(String idStudent, int gradePercent){
     StudentGrade studentGrade = new StudentGrade(idStudent, gradePercent);
     this.calculateAvg(studentGrade);
     listClassGrades.add(studentGrade);
-    
   }
   
   private void calculateAvg(StudentGrade studentGrade){
     double value = classAvgNotePercent.doubleValue() * listClassGrades.size();
     value = ( value + studentGrade.getGradePercent()) / (listClassGrades.size() + 1);
     classAvgNotePercent = value;
-    
   }
 
   @Override
@@ -118,9 +114,6 @@ public class ReportCard implements Serializable {
     return ret.toString();
   }
   
-  
-  
-  
 }
 
 
@@ -128,7 +121,6 @@ class StudentGrade {
   
   private String idStudent;
   private Integer gradePercent;
-  
   
   public StudentGrade(String idStudent) {
     super();
@@ -166,6 +158,5 @@ class StudentGrade {
   public String toString() {
    return "Student:" + idStudent + " grade:" +  gradePercent;
   }
-  
   
 }
